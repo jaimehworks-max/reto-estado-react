@@ -1,5 +1,4 @@
-import { useState } from "react";
-import "./Producto.css";
+
 
 const ProductoCard = () => {
   const [cantidad, setCantidad] = useState(0);
@@ -37,4 +36,4 @@ const ProductoCard = () => {
   );
 };
 
-export default ProductoCard;
+
