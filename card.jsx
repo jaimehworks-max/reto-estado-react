@@ -1,7 +1,7 @@
 
 
 const ProductoCard = () => {
-  const [cantidad, setCantidad] = useState(0);
+  const [cantidad, setCantidad] = React.useState(0);
 
   const aumentar = () => {
     setCantidad(cantidad + 1);
