@@ -2,21 +2,44 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Reto de Estado</title>
+    <title>Reto Estado React - Juan Lozano</title>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
     <link rel="stylesheet" href="card.css">
 </head>
 <body>
     <div id="root"></div>
 
-    <script type="text/babel" src="card.jsx"></script>
-    
     <script type="text/babel">
-        // Este pequeño script renderiza tu componente en el div 'root'
+        const ProductoCard = () => {
+            const [cantidad, setCantidad] = React.useState(0);
+
+            const aumentar = () => setCantidad(cantidad + 1);
+            const disminuir = () => {
+                if (cantidad > 0) setCantidad(cantidad - 1);
+            };
+
+            return (
+                <div className="card">
+                    <img src="https://m.media-amazon.com/images/I/61-PbLYntsL._AC_SL1500_.jpg" alt="Consola" />
+                    <div className="card-content">
+                        <h3>Consola de videojuegos</h3>
+                        <p>Esta es una consola de videojuegos que entretiene a los programadores en sus breaks.</p>
+                        <div className="contador-container">
+                            <button onClick={disminuir} className="btn-menos">-</button>
+                            <span className="cantidad-texto">{cantidad}</span>
+                            <button onClick={aumentar} className="btn-mas">+</button>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // Renderizado (Ahora sí encontrará a ProductoCard porque están en el mismo bloque)
         const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<ProductoCard/>);
+        root.render(<ProductoCard />);
     </script>
 </body>
 </html>
